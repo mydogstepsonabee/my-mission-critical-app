@@ -33,7 +33,8 @@ $targetResourceIds += $targetResourceId
 Write-Output "*** Creating Chaos Target sub-resource: $targetResourceId "
 # Create chaos target as AKS sub-resource
 $url = "https://management.azure.com$($targetResourceId)?api-version=$($ChaosStudioApiVersion)"
-az rest --method put --url $url --body '{\"properties\":{}}'
+# az rest --method put --url $url --body '{\"properties\":{}}'
+az rest --method put --url $url --body '{\"properties\":{}}' --headers '{"Content-Type":"application/json"}'
 if ($LastExitCode -ne 0) {
     throw "*** Error on chaos target creation against $targetResourceId" # This can, for instance, happen if the region is not supported by Chaos Studio
 }
