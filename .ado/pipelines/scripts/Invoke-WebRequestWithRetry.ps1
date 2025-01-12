@@ -16,7 +16,7 @@ function Invoke-WebRequestWithRetry {
   do {
     try {
       Write-Host "[$method] $Uri"
-      $response = Invoke-WebRequest -Uri $Uri -Method $Method -Headers $Headers -Body $Body -ContentType "application/json"
+      $response = Invoke-WebRequest -Uri $Uri -Method $Method -Headers $Headers -Body $Body -ContentType "application/json" -SkipCertificateCheck
       if ($response.StatusCode -ne $ExpectedResponseCode) {
         throw "*** Expecting reponse code $ExpectedResponseCode, was: $($response.StatusCode)"
       }
