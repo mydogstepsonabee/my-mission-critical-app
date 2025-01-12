@@ -41,13 +41,12 @@ jobs:
           }
 
           Write-Host "*** Found $($testData.catalogItems.Count) catalog items to import"
-          [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
 
           foreach($catalogItem in $testData.catalogItems)
           {
               Write-Host "*** Importing item $($catalogItem.name)"
               $itemJson = $catalogItem | ConvertTo-Json -Compress
-
+              [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
               # Call the Create CatalogItem API
               Invoke-WebRequest -Method POST `
                                 -Uri $url `
