@@ -41,6 +41,7 @@ jobs:
           }
 
           Write-Host "*** Found $($testData.catalogItems.Count) catalog items to import"
+          [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
 
           foreach($catalogItem in $testData.catalogItems)
           {
