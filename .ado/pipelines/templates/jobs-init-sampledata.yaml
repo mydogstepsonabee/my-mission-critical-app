@@ -52,6 +52,7 @@ jobs:
                                 -Uri $url `
                                 -Headers $header `
                                 -ContentType "application/json" `
-                                -Body $itemJson
+                                -Body $itemJson `
+                                -SkipCertificateCheck
           }
 
