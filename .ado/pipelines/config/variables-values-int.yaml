@@ -4,7 +4,7 @@ variables:
 
 # Resource prefix for this environment
 - name:  'prefix'
-  value: 'mcint'          # <===== CHANGE THIS! Must not be longer than 6 characters! Needs to be a unique prefix
+  value: 'intrun'          # <===== CHANGE THIS! Must not be longer than 6 characters! Needs to be a unique prefix
 
 # Host-encryption for compute resources (needs to be enabled on subscription-level)
 # https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli
@@ -14,10 +14,10 @@ variables:
 # The first value in 'stampLocations' is the primary region used for global services.
 # IMPORTANT! Changing the primary region (first value) is a BREAKING change and will destroy CosmosDB and Front Door.
 - name: 'stampLocations'
-  value: '["uksouth", "australiaeast"]' # Check which regions are valid. There is a list in /src/infra/README.md
+  value: '["japaneast", "eastasia"]' # Check which regions are valid. There is a list in /src/infra/README.md
 
 - name: 'stampLocationsGrafana'
-  value: '["uksouth"]' # Check which regions are valid. There is a list in /src/infra/README.md
+  value: '["japaneast"]' # Check which regions are valid. There is a list in /src/infra/README.md
 
 # Terraform state variables
 - name:  'terraformResourceGroup'
